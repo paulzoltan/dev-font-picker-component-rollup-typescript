@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=My+Soul&display=swap');
+
+.tool-picker {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  pointer-events: none;
+  gap: 1em;
+  padding: 1em;
+  align-items: space-between;
+  font-size: 16px;
+}
+.tool-picker__button {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  background-color: #555;
+  font-size: 1.3em;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.tool-picker__button--family {
+  font-family: 'My Soul', cursive;
+}
+.tool-picker__button--color {
+  color: #faff00;
+  background-color: #555;
+}
+
+/* WIDGETS */
+.popup {
+  position: fixed;
+  width: max-content;
+  border-radius: 0.5em;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 0 35px 0 #0003, 0 0 7px 0 #000a;
+}
+.popup__dragged {
+  z-index: 11;
+}
+body:has(.popup__dragged) {
+  user-select: none;
+  /* background-color: red; */
+}
+.widget {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #333;
+  color: #fffd;
+  font-size: 16px;
+}
+.widget__draghandle {
+  height: 1em;
+}
+.popup__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: max-content;
+  align-self: flex-end;
+  border: none;
+  padding: 0.1em;
+  color: #fffc;
+  background-color: #3330;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* COLOR-PICKER */
+
+.widget--color-picker {
+  top: 0;
+  left: 0;
+  translate: calc(100vw - 40em) calc(100vh - 17em);
+}
+.popup .react-colorful__saturation {
+  border-radius: 0;
+}
+.popup .react-colorful__last-control {
+  border-radius: 0;
+}
+.react-colorful__last-control .react-colorful__pointer {
+  box-shadow: 0 0 0 1px #000f, inset 0 0 0 1px #000f;
+}
+.widget--color-picker__text-display {
+  padding: 0.5em 1em;
+  font: inherit;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* SIZE PICKER */
+
+.widget--size-picker {
+  top: 0;
+  left: 0;
+  translate: calc(100vw - 25em) calc(100vh - 5.2em);
+}
+.widget--size-picker {
+  display: flex;
+  padding: 0.2em 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0.2em;
+  grid-row-gap: 0.1em;
+  grid-template-columns: auto auto;
+  color: #fff9;
+}
+.widget--size-picker__button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff9;
+  cursor: pointer;
+}
+.widget--size-picker__button:hover {
+  color: #fffd;
+}
+.widget--size-picker__figures {
+  font-size: 3em;
+  grid-area: 1 / 1 / 3 / 2;
+  align-self: center;
+}
+.widget--size-picker__button--arrow-up {
+  grid-area: 1 / 2 / 2 / 3;
+  align-self: end;
+  display: flex;
+}
+.widget--size-picker__button--arrow-down {
+  grid-area: 2 / 2 / 3 / 3;
+  align-self: start;
+  display: flex;
+  padding: 0.1em;
+}
+
+/* FAMILY PICKER */
+
+.widget--family-picker {
+  top: 0;
+  left: 0;
+  translate: calc(100vw - 25em) calc(100vh - 39.8em);
+}
+.widget--family-picker__content {
+  font-size: 25px;
+  height: 20em;
+  overflow: auto;
+  resize: both;
+}
+.widget--family-picker__font-name {
+  cursor: pointer;
+  color: #fff6;
+  padding: 0.2em 0.8em;
+  outline: none;
+}
+.widget--family-picker__font-name:hover {
+  background-color: #00ffe512;
+  color: #fffa;
+}
+.widget--family-picker__font-name--selected {
+  background-color: #00ffe548;
+  color: #fffd;
+}
+.widget--family-picker__font-name--selected:hover {
+  background-color: #00ffe568;
+  color: #ffff;
+}
+
+/* FAMILY PICKER SCROLL */
+
+/* width / height */
+.widget--family-picker__content::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+/* Track */
+.widget--family-picker__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Handle */
+.widget--family-picker__content::-webkit-scrollbar-thumb {
+  background: #444;
+}
+/* Handle on hover */
+.widget--family-picker__content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.widget--family-picker__content::-webkit-scrollbar-corner {
+  background: #f1f1f100;
+}
