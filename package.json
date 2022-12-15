@@ -1,11 +1,12 @@
 {
   "name": "dev-font-picker",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "dev-font-picker-component-rollup-typescript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "types": "dist/index.d.ts",
   "scripts": {
